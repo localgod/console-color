@@ -28,7 +28,7 @@
  * @package  ConsoleColor
  * @author   Johannes Skov Frandsen <localgod@heaven.dk>
  * @license  http://www.opensource.org/licenses/mit-license.php MIT License
- * @link     https://github.com/localgod/Console_Color2
+ * @link     https://github.com/localgod/ConsoleColor
  */
 
 require_once '../src/ConsoleColor.php';
@@ -41,6 +41,6 @@ print ConsoleColor::convert("%rHello World!%n\n", false);
 // The uppercase version makes a colorcode bold/bright
 print ConsoleColor::convert("%BHello World!%n\n");
 // To print a %, you use %%
-print ConsoleColor::convert("3 out of 4 people make up about %r75%% %nof the "."world population.\n");
+print ConsoleColor::convert("3 out of 4 people make up about %r75%% %nof the world population.\n");
 // Or you can use the escape() method.
-print ConsoleColor::convert("%y".Console_Color2::escape('If you feel that you do everying wrong, be random'.', there\'s a 50% Chance of making the right '.'decision.')."%n\n");
+print ConsoleColor::convert("%y".Console_Color2::escape('If you feel that you do everying wrong, be random, there\'s a 50% Chance of making the right decision.')."%n\n");

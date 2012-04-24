@@ -28,7 +28,7 @@
  * @package  ConsoleColor
  * @author   Johannes Skov Frandsen <localgod@heaven.dk>
  * @license  http://www.opensource.org/licenses/mit-license.php MIT License
- * @link     https://github.com/localgod/Console_Color2
+ * @link     https://github.com/localgod/ConsoleColor
  */
 
 /**
@@ -42,10 +42,9 @@
  * @package  ConsoleColor
  * @author   Johannes Skov Frandsen <localgod@heaven.dk>
  * @license  http://www.opensource.org/licenses/mit-license.php MIT License
- * @link     https://github.com/localgod/Console_Color2
+ * @link     https://github.com/localgod/ConsoleColor
  */
-class ConsoleColor
-{
+class ConsoleColor {
 	/**
 	 * Color Codes
 	 * @var array
@@ -143,8 +142,7 @@ class ConsoleColor
 	 *
 	 * @return string
 	 */
-	private static function _color($color = null, $style = null, $background = null)
-	{
+	private static function _color($color = null, $style = null, $background = null) {
 		if (is_array($color)) {
 			$style      = isset($color['style']) ? $color['style'] : null;
 			$background = isset($color['background']) ? $color['background'] : null;
@@ -211,8 +209,7 @@ class ConsoleColor
 	 *
 	 * @return string
 	 */
-	public static function convert($string, $colored = true)
-	{
+	public static function convert($string, $colored = true) {
 		if ($colored) {
 			$string = str_replace('%%', '% ', $string);
 			foreach (self::$_conversions as $key => $value) {
@@ -234,8 +231,7 @@ class ConsoleColor
 	 *
 	 * @return string
 	 */
-	public static function escape($string)
-	{
+	public static function escape($string) {
 		return str_replace('%', '%%', $string);
 	}
 }
