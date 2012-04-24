@@ -1,3 +1,5 @@
+[![Build Status](https://secure.travis-ci.org/localgod/ConsoleColor.png?branch=master)](http://travis-ci.org/localgod/ConsoleColor)
+
 This class is a reimplementation of http://pear.php.net/package/Console_Color/ for php 5.3 
 
 ConsoleColor is a simple class to use ANSI Colorcodes.
