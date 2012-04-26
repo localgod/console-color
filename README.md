@@ -4,7 +4,7 @@ This class is a reimplementation of http://pear.php.net/package/Console_Color/ f
 
 ConsoleColor is a simple class to use ANSI Colorcodes.
 
-Console_Color::convert() - Transform Colorcodes into ANSI Control Codes  
+ConsoleColor::convert() - Transform Colorcodes into ANSI Control Codes  
   Converts colorcodes in the format %y (for yellow) into ansi-control
   codes. The conversion table is: ('bold' meaning 'light' on some
   terminals). It's almost the same conversion table irssi uses.
@@ -32,5 +32,5 @@ Console_Color::convert() - Transform Colorcodes into ANSI Control Codes
   colorcodes will just be removed (And %% will be transformed into %)
   The transformed string is returned.
   
-Console_Color::escape() - Escapes % so they don't get interpreted as color codes
+ConsoleColor::escape() - Escapes % so they don't get interpreted as color codes
   Takes a string as an argument and returns the escaped string.
