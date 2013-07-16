@@ -1,4 +1,9 @@
-.settings
-build
-.buildpath
-.project
+/composer.lock
+/composer.phar
+/bin
+/vendor
+/data
+/.buildpath
+/.project
+/.settings
+/target

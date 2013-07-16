@@ -9,4 +9,5 @@
 	<rule ref="rulesets/naming.xml" />
 	<rule ref="rulesets/codesize.xml" />
 	<rule ref="rulesets/design.xml" />
+	<rule ref="rulesets/controversial.xml" />
 </ruleset>

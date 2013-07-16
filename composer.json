@@ -1,0 +1,43 @@
+{
+	"name" : "localgod/ConsoleColor",
+	"description" : "Tool for working with console colors",
+	"type" : "library",
+	"authors" : [{
+			"name" : "Johannes Skov Frandsen",
+			"email" : "localgod@heaven.dk",
+			"homepage" : "https://github.com/localgod",
+			"role" : "Lead"
+		}
+	],
+	"keywords" : [
+		"Console Color"
+	],
+	"homepage" : "https://github.com/localgod/ConsoleColor",
+	"license" : [
+		"MIT"
+	],
+	"require-dev" : {
+		"sebastian/phpcpd" : "master-dev",
+		"phpunit/phpunit" : "3.7.22",
+		"behat/behat" : "~2.4",
+		"phpdocumentor/phpdocumentor" : "2.0.0b6",
+		"squizlabs/php_codesniffer" : "1.4.5",
+		"phpmd/phpmd" : "1.4.1",
+		"pdepend/pdepend" : "1.1.0"
+	},
+	"autoload" : {
+		"psr-0" : {
+			"Console" : "src/"
+		}
+	},
+	"minimum-stability" : "dev",
+	"support" : {
+		"source" : "https://github.com/localgod/ConsoleColor",
+		"issues" : "https://github.com/localgod/ConsoleColor/issues",
+		"wiki" : "https://github.com/localgod/ConsoleColor/wiki"
+	},
+	"config" : {
+		"bin-dir" : "bin/",
+		"vendor-dir" : "vendor/"
+	}
+}

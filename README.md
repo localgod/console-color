@@ -35,9 +35,9 @@ ConsoleColor::convert() - Transform Colorcodes into ANSI Control Codes
 ConsoleColor::escape() - Escapes % so they don't get interpreted as color codes
   Takes a string as an argument and returns the escaped string.
   
-## Examples ##
+## Examples
 ```php
-require_once '../src/ConsoleColor.php';
+use Console\Color;
 // Let's add a little color to the world
 // %n resets the color so the following stuff doesn't get messed up
 print ConsoleColor::convert("%bHello World!%n\n");
