@@ -41,7 +41,7 @@ class FeatureContext extends BehatContext
      */
     public function iCallTheConvertMethodWithTheRedArgument()
     {
-        $this->output = Color::convert('%rred%n');
+        $this->output = Color::redText('red');
     }
 
     /**

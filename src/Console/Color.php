@@ -10,6 +10,7 @@
  * @link     https://github.com/localgod/ConsoleColor
  */
 namespace Console;
+
 /**
  * A simple class to use ANSI Colorcodes.
  *
@@ -21,9 +22,20 @@ namespace Console;
  * @author Johannes Skov Frandsen <localgod@heaven.dk>
  * @license http://www.opensource.org/licenses/mit-license.php MIT License
  * @link https://github.com/localgod/ConsoleColor
+ *
+ * @method string blackText($text, $reset)
+ * @method string redText($text, $reset)
+ * @method string greenText($text, $reset)
+ * @method string brownText($text, $reset)
+ * @method string blueText($text, $reset)
+ * @method string purpleText($text, $reset)
+ * @method string cyanText($text, $reset)
+ * @method string greyText($text, $reset)
+ * @method string yellowText($text, $reset)
  */
 class Color
 {
+
     /**
      * Color Codes
      *
@@ -181,6 +193,44 @@ class Color
             'style' => 'bold'
         )
     );
+    /**
+     * Conversion table reverse lookup
+     *
+     * @var array
+     */
+    private static $_reverseLookup = array(
+        'black' => '%k',
+        'red' => '%r',
+        'green' => '%g',
+        'brown' => '',
+        'yellow' => '%y',
+        'blue' => '%b',
+        'purple' => '%p',
+        'cyan' => '%c',
+        'grey' => '%w'
+        );
+
+    /**
+     * Call method by name
+     *
+     * @param string $name
+     *            Name of method to call
+     * @param array $arguments
+     *            Arguments to method
+     *
+     * @return string
+     */
+    public static function __callStatic($name, $arguments)
+    {
+        if (preg_match('/^(black|red|green|brown|blue|purple|cyan|grey|yellow)Text$/', $name)) {
+            $color = str_replace("Text", "", $name);
+            if (isset($arguments[1]) && is_bool($arguments[1]) && $arguments[1] == false) {
+                return self::convert(self::$_reverseLookup[$color] . $arguments[0]);
+            } else {
+                return self::convert(self::$_reverseLookup[$color] . $arguments[0]."%n");
+            }
+        }
+    }
 
     /**
      * Returns an ANSI-Controlcode
