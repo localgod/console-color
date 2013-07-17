@@ -2,7 +2,7 @@
 /**
  * Console color
  *
- * PHP version 5
+ * PHP version >=5.3
  *
  * @category Console
  * @author   Johannes Skov Frandsen <localgod@heaven.dk>
@@ -14,24 +14,40 @@ namespace Console;
 /**
  * A simple class to use ANSI Colorcodes.
  *
- * Of all the functions, you probably only want to use convert() and escape().
- * They are easier to use. However, if you want to access colorcodes more
- * directly, look into the other functions.
+ * ::convert() and ::escape() are your base tools.
+ * ::*Normal(), *Bright() and *Background() can be use as convenient shorthands eg. ::redNormal() 
  *
  * @category Console
  * @author Johannes Skov Frandsen <localgod@heaven.dk>
  * @license http://www.opensource.org/licenses/mit-license.php MIT License
  * @link https://github.com/localgod/ConsoleColor
- *
- * @method string blackText($text, $reset)
- * @method string redText($text, $reset)
- * @method string greenText($text, $reset)
- * @method string brownText($text, $reset)
- * @method string blueText($text, $reset)
- * @method string purpleText($text, $reset)
- * @method string cyanText($text, $reset)
- * @method string greyText($text, $reset)
- * @method string yellowText($text, $reset)
+ *      
+ * @method string blackNormal($string) Encode the string as black
+ * @method string redNormal($string) Encode the string as red
+ * @method string greenNormal($string) Encode the string as green
+ * @method string blueNormal($string) Encode the string as blue
+ * @method string magentaNormal($string) Encode the string as magenta
+ * @method string cyanNormal($string) Encode the string as cyan
+ * @method string whiteNormal($string) Encode the string as white
+ * @method string yellowNormal($string) Encode the string as yellow
+ *        
+ * @method string blackBright($string) Encode the string as bright black
+ * @method string redBright($string) Encode the string as bright red
+ * @method string greenBright($string) Encode the string as bright green
+ * @method string blueBright($string) Encode the string as bright blue
+ * @method string magentaBright($string) Encode the string as bright magenta
+ * @method string cyanBright($string) Encode the string as bright cyan
+ * @method string whiteBright($string) Encode the string as bright white
+ * @method string yellowBright($string) Encode the string as bright yellow
+ *        
+ * @method string blackBackground($string) Encode the string with black background
+ * @method string redBackground($string) Encode the string with red background
+ * @method string greenBackground($string) Encode the string with green background
+ * @method string blueBackground($string) Encode the string with blue background
+ * @method string magentaBackground($string) Encode the string with magenta background
+ * @method string cyanBackground($string) Encode the string with cyan background
+ * @method string whiteBackground($string) Encode the string with white background
+ * @method string yellowBackground($string) Encode the string with yellow background
  */
 class Color
 {
@@ -46,11 +62,10 @@ class Color
             'black' => 30,
             'red' => 31,
             'green' => 32,
-            'brown' => 33,
             'blue' => 34,
-            'purple' => 35,
+            'magenta' => 35,
             'cyan' => 36,
-            'grey' => 37,
+            'white' => 37,
             'yellow' => 33
         ),
         'style' => array(
@@ -68,12 +83,11 @@ class Color
             'black' => 40,
             'red' => 41,
             'green' => 42,
-            'brown' => 43,
             'yellow' => 43,
             'blue' => 44,
-            'purple' => 45,
+            'magenta' => 45,
             'cyan' => 46,
-            'grey' => 47
+            'white' => 47
         )
     );
 
@@ -95,17 +109,14 @@ class Color
         '%r' => array(
             'color' => 'red'
         ),
-        '%p' => array(
-            'color' => 'purple'
-        ),
         '%m' => array(
-            'color' => 'purple'
+            'color' => 'magenta'
         ),
         '%c' => array(
             'color' => 'cyan'
         ),
         '%w' => array(
-            'color' => 'grey'
+            'color' => 'white'
         ),
         '%k' => array(
             'color' => 'black'
@@ -129,12 +140,8 @@ class Color
             'color' => 'red',
             'style' => 'light'
         ),
-        '%P' => array(
-            'color' => 'purple',
-            'style' => 'light'
-        ),
         '%M' => array(
-            'color' => 'purple',
+            'color' => 'magenta',
             'style' => 'light'
         ),
         '%C' => array(
@@ -142,7 +149,7 @@ class Color
             'style' => 'light'
         ),
         '%W' => array(
-            'color' => 'grey',
+            'color' => 'white',
             'style' => 'light'
         ),
         '%K' => array(
@@ -166,13 +173,13 @@ class Color
             'background' => 'red'
         ),
         '%5' => array(
-            'background' => 'purple'
+            'background' => 'magenta'
         ),
         '%6' => array(
             'background' => 'cyan'
         ),
         '%7' => array(
-            'background' => 'grey'
+            'background' => 'white'
         ),
         '%0' => array(
             'background' => 'black'
@@ -193,22 +200,44 @@ class Color
             'style' => 'bold'
         )
     );
+
     /**
      * Conversion table reverse lookup
      *
      * @var array
      */
     private static $_reverseLookup = array(
-        'black' => '%k',
-        'red' => '%r',
-        'green' => '%g',
-        'brown' => '',
-        'yellow' => '%y',
-        'blue' => '%b',
-        'purple' => '%p',
-        'cyan' => '%c',
-        'grey' => '%w'
-        );
+        'normal' => array(
+            'black' => '%k',
+            'red' => '%r',
+            'green' => '%g',
+            'yellow' => '%y',
+            'blue' => '%b',
+            'magenta' => '%M',
+            'cyan' => '%c',
+            'white' => '%w'
+        ),
+        'bright' => array(
+            'black' => '%K',
+            'red' => '%R',
+            'green' => '%G',
+            'yellow' => '%Y',
+            'blue' => '%B',
+            'magenta' => '%M',
+            'cyan' => '%C',
+            'white' => '%W'
+        ),
+        'background' => array(
+            'black' => '%0',
+            'red' => '%1',
+            'green' => '%2',
+            'yellow' => '%3',
+            'blue' => '%4',
+            'magenta' => '%5',
+            'cyan' => '%6',
+            'white' => '%7'
+        )
+    );
 
     /**
      * Call method by name
@@ -217,18 +246,22 @@ class Color
      *            Name of method to call
      * @param array $arguments
      *            Arguments to method
-     *
+     *            
      * @return string
      */
     public static function __callStatic($name, $arguments)
     {
-        if (preg_match('/^(black|red|green|brown|blue|purple|cyan|grey|yellow)Text$/', $name)) {
-            $color = str_replace("Text", "", $name);
-            if (isset($arguments[1]) && is_bool($arguments[1]) && $arguments[1] == false) {
-                return self::convert(self::$_reverseLookup[$color] . $arguments[0]);
-            } else {
-                return self::convert(self::$_reverseLookup[$color] . $arguments[0]."%n");
-            }
+        if (preg_match('/^(black|red|green|blue|magenta|cyan|white|yellow)Normal$/', $name)) {
+            $color = str_replace("Normal", "", $name);
+            return self::convert(self::$_reverseLookup['normal'][$color] . $arguments[0] . "%n");
+        }
+        if (preg_match('/^(black|red|green|blue|magenta|cyan|white|yellow)Bright$/', $name)) {
+            $color = str_replace("Bright", "", $name);
+            return self::convert(self::$_reverseLookup['bright'][$color] . $arguments[0] . "%n");
+        }
+        if (preg_match('/^(black|red|green|blue|magenta|cyan|white|yellow)Background$/', $name)) {
+            $color = str_replace("Background", "", $name);
+            return self::convert(self::$_reverseLookup['background'][$color] . $arguments[0] . "%n");
         }
     }
 
@@ -249,7 +282,7 @@ class Color
      *            Optional name of the style
      * @param string $background
      *            Optional name of the background color
-     *
+     *            
      * @return string
      */
     private static function _color($color = null, $style = null, $background = null)
@@ -259,29 +292,29 @@ class Color
             $background = isset($color['background']) ? $color['background'] : null;
             $color = isset($color['color']) ? $color['color'] : null;
         }
-
+        
         if ($color == 'reset') {
             return "\033[0m";
         }
-
+        
         $code = array();
         if (isset($color)) {
             $code[] = self::$_colorCodes['color'][$color];
         }
-
+        
         if (isset($style)) {
             $code[] = self::$_colorCodes['style'][$style];
             $code[] = self::$_colorCodes['style'][$style];
         }
-
+        
         if (isset($background)) {
             $code[] = self::$_colorCodes['background'][$background];
         }
-
+        
         if (empty($code)) {
             $code[] = 0;
         }
-
+        
         $code = implode(';', $code);
         return "\033[{$code}m";
     }
@@ -294,13 +327,12 @@ class Color
      * <pre>
      * text text background
      * ------------------------------------------------
-     * %k %K %0 black dark grey black
+     * %k %K %0 black dark white black
      * %r %R %1 red bold red red
      * %g %G %2 green bold green green
      * %y %Y %3 yellow bold yellow yellow
      * %b %B %4 blue bold blue blue
      * %m %M %5 magenta bold magenta magenta
-     * %p %P magenta (think: purple)
      * %c %C %6 cyan bold cyan cyan
      * %w %W %7 white bold white white
      *
@@ -320,7 +352,7 @@ class Color
      *            String to convert
      * @param bool $colored
      *            Should the string be colored?
-     *
+     *            
      * @return string
      */
     public static function convert($string, $colored = true)
@@ -334,7 +366,7 @@ class Color
         } else {
             $string = preg_replace('/%((%)|.)/', '$2', $string);
         }
-
+        
         return $string;
     }
 
@@ -343,7 +375,7 @@ class Color
      *
      * @param string $string
      *            String to escape
-     *
+     *            
      * @return string
      */
     public static function escape($string)
