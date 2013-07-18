@@ -9,7 +9,7 @@
  * @license  http://www.opensource.org/licenses/mit-license.php MIT License
  * @link     https://github.com/localgod/ConsoleColor
  */
-namespace Console;
+namespace Localgod\Console;
 
 /**
  * A simple class to use ANSI Colorcodes.

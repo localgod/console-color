@@ -1,5 +1,5 @@
 {
-	"name" : "localgod/ConsoleColor",
+	"name" : "localgod/console-color",
 	"description" : "Tool for working with console colors",
 	"type" : "library",
 	"authors" : [{
@@ -10,9 +10,9 @@
 		}
 	],
 	"keywords" : [
-		"Console Color"
+		"console color"
 	],
-	"homepage" : "https://github.com/localgod/ConsoleColor",
+	"homepage" : "http://localgod.github.io/console-color/",
 	"license" : [
 		"MIT"
 	],
@@ -28,14 +28,14 @@
 	},
 	"autoload" : {
 		"psr-0" : {
-			"Console" : "src/"
+			"Localgod\\Console\\" : "src"
 		}
 	},
 	"minimum-stability" : "dev",
 	"support" : {
-		"source" : "https://github.com/localgod/ConsoleColor",
-		"issues" : "https://github.com/localgod/ConsoleColor/issues",
-		"wiki" : "https://github.com/localgod/ConsoleColor/wiki"
+		"source" : "https://github.com/localgod/console-color",
+		"issues" : "https://github.com/localgod/console-color/issues",
+		"wiki" : "https://github.com/localgod/console-color/wiki"
 	},
 	"config" : {
 		"bin-dir" : "bin/",
