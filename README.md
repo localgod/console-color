@@ -1,30 +1,25 @@
 [![Build Status](https://secure.travis-ci.org/localgod/ConsoleColor.png?branch=master)](http://travis-ci.org/localgod/ConsoleColor)
 
-This projects is a reimplementation of the ideas used in http://pear.php.net/package/Console_Color/
+**console-color** makes it simple to work with ANSI color codes in you console.
 
-ConsoleColor makes it simple to work with ANSI Color codes in you console programs.
+### Base methods
+**escape($string)**
+: Escapes % so they don't get interpreted as color codes; Takes a string as an argument and returns the escaped string.
 
-## Base methods
-**\Console\Color::escape()**
-Escapes % so they don't get interpreted as color codes
+**convert($string, $colored = true))**
+: Transform color codes whithin supplied string into ANSI control codes
 
-Takes a string as an argument and returns the escaped string.
+### Magic methods
 
+For each of the colors supported you can call:
 
-**\Console\Color::convert()**
-Transform Colorcodes into ANSI Control Codes  
+ * {colorname}Normal($string)  
+ * {colorname}Bright($string)  
+ * {colorname}Background($string)
+ 
+to quickly format the string accordingly.   
 
-Converts colorcodes in the format %y (for yellow) into ansi-control codes.
-
-First param is the string to convert, second is an optional flag if
-colors should be used. 
-
-It defaults to true, if set to false, the
-colorcodes will just be removed (And %% will be transformed into %)
-
-The transformed string is returned.
-
-## Code conversion table
+### Code conversion table
 
 <table>
 	<thead>
@@ -96,12 +91,14 @@ The transformed string is returned.
 | %n    | Resets the color   |
 | %%    | A single %         |
 
-## Examples
+### Examples
 ```php
-use Console\Color;
+use Localgod\Console\Color;
 // Let's add a little color to the world
 // %n resets the color so the following stuff doesn't get messed up
 print Color::convert("%bHello World!%n\n");
+// Paint it red
+print Color::redNormal("Paint it red!\n");
 // Colorless mode, in case you need to strip colorcodes off a text
 print Color::convert("%rHello World!%n\n", false);
 // The uppercase version makes a colorcode bold/bright
@@ -111,3 +108,5 @@ print Color::convert("3 out of 4 people make up about %r75%% %nof the world popu
 // Or you can use the escape() method.
 print Color::convert("%y".Color::escape('If you feel that you do everying wrong, be random, there\'s a 50% Chance of making the right decision.')."%n\n");
 ```
+### Inspiration
+This projects is a reimplementation of the ideas used in http://pear.php.net/package/Console_Color/
