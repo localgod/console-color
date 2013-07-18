@@ -1,4 +1,4 @@
-[![Build Status](https://secure.travis-ci.org/localgod/ConsoleColor.png?branch=master)](http://travis-ci.org/localgod/ConsoleColor)
+[![Build Status](https://secure.travis-ci.org/localgod/ConsoleColor.png?branch=devel)](http://travis-ci.org/localgod/ConsoleColor)
 
 This projects is a reimplementation of the ideas used in http://pear.php.net/package/Console_Color/
 
