@@ -17,13 +17,14 @@
 		"MIT"
 	],
 	"require-dev" : {
-		"sebastian/phpcpd" : "master-dev",
-		"phpunit/phpunit" : "3.7.22",
-		"behat/behat" : "~2.4",
-		"phpdocumentor/phpdocumentor" : "2.0.0b6",
-		"squizlabs/php_codesniffer" : "1.4.5",
-		"phpmd/phpmd" : "1.4.1",
-		"pdepend/pdepend" : "1.1.0"
+		"sebastian/phpcpd" : ">=1.4.1@stable",
+		"phpunit/phpunit" : ">=3.7.22@stable",
+		"behat/behat" : ">=2.4.6@stable",
+		"phpdocumentor/phpdocumentor" : ">=2.0.0b7",
+		"squizlabs/php_codesniffer" : ">=1.4.5@stable",
+		"cilex/cilex" : ">=0.1",
+		"phpmd/phpmd" : ">=1.4.1@stable",
+		"pdepend/pdepend" : ">=1.1.0@stable"
 	},
 	"autoload" : {
 		"psr-0" : {
