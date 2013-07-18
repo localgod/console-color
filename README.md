@@ -2,33 +2,24 @@
 
 **console-color** makes it simple to work with ANSI color codes in you console.
 
-## Base methods
+### Base methods
 **escape($string)**
-Escapes % so they don't get interpreted as color codes
-
-Takes a string as an argument and returns the escaped string.
+: Escapes % so they don't get interpreted as color codes; Takes a string as an argument and returns the escaped string.
 
 **convert($string, $colored = true))**
-Transform color codes into ANSI control codes
+: Transform color codes whithin supplied string into ANSI control codes
 
-Converts color codes in the format %y (for yellow) into ansi-control codes.
-
-First param is the string to convert
-Second is an optional flag if colors should be used. 
-
-If set to false, the color codes will just be removed (and %% will be transformed into %)
-
-The transformed string is returned.
-
-## Magic methods
+### Magic methods
 
 For each of the colors supported you can call:
+
  * {colorname}Normal($string)  
  * {colorname}Bright($string)  
  * {colorname}Background($string)
+ 
 to quickly format the string accordingly.   
 
-## Code conversion table
+### Code conversion table
 
 <table>
 	<thead>
@@ -100,7 +91,7 @@ to quickly format the string accordingly.
 | %n    | Resets the color   |
 | %%    | A single %         |
 
-## Examples
+### Examples
 ```php
 use Localgod\Console\Color;
 // Let's add a little color to the world
