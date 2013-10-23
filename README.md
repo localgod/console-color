@@ -1,4 +1,4 @@
-[![Build Status](https://secure.travis-ci.org/localgod/ConsoleColor.png?branch=master)](http://travis-ci.org/localgod/ConsoleColor)
+[![Build Status](https://secure.travis-ci.org/localgod/ConsoleColor.png?branch=devel)](http://travis-ci.org/localgod/ConsoleColor)
 
 **console-color** makes it simple to work with ANSI color codes in you console.
 

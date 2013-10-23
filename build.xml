@@ -14,7 +14,7 @@
 	<import file="${targets.dir}/behat.xml" />
 	<import file="${targets.dir}/package.xml" />
 
-	<target name="all" depends="tabtospace,phpcb,phpdcd,phpdoc" />
+	<target name="all" depends="tabtospace,phpcb,phpdcd,phpdoc, package" />
 	<target name="travis" depends="phpunit, behat, phpcs, phpmd, pdepend" />
 	<target name="help">
 		<echo>
