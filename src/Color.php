@@ -7,7 +7,7 @@
  * @category Console
  * @author   Johannes Skov Frandsen <localgod@heaven.dk>
  * @license  http://www.opensource.org/licenses/mit-license.php MIT License
- * @link     https://github.com/localgod/ConsoleColor
+ * @link     https://github.com/localgod/console-color
  */
 namespace Localgod\Console;
 
@@ -20,7 +20,7 @@ namespace Localgod\Console;
  * @category Console
  * @author Johannes Skov Frandsen <localgod@heaven.dk>
  * @license http://www.opensource.org/licenses/mit-license.php MIT License
- * @link https://github.com/localgod/ConsoleColor
+ * @link https://github.com/localgod/console-color
  *      
  * @method string blackNormal($string) Encode the string as black
  * @method string redNormal($string) Encode the string as red

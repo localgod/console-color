@@ -1,4 +1,4 @@
-# ConsoleColor
+# console-color
 
 Copyright (c) 2012, Johannes Frandsen
 All rights reserved.

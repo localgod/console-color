@@ -5,14 +5,14 @@
 	processIsolation="false" stopOnFailure="false" syntaxCheck="true">
 
 	<testsuites>
-		<testsuite name="ConsoleColor test suite">
+		<testsuite name="console-color test suite">
 			<directory>./</directory>
 		</testsuite>
 	</testsuites>
 
 	<logging>
 		<log type="coverage-html" target="../target/phpunit/coverage"
-			title="Karla" charset="UTF-8" yui="true" highlight="true"
+			title="console-color" charset="UTF-8" yui="true" highlight="true"
 			lowUpperBound="35" highLowerBound="70" />
 		<log type="coverage-xml" target="../target/phpunit/coverage.xml" />
 		<log type="coverage-clover" target="../target/phpunit/clover.xml" />

@@ -7,7 +7,7 @@
  * @category Console
  * @author   Johannes Skov Frandsen <localgod@heaven.dk>
  * @license  http://www.opensource.org/licenses/mit-license.php MIT License
- * @link     https://github.com/localgod/ConsoleColor
+ * @link     https://github.com/localgod/console-color
  */
 namespace localgod\Console;
 /**
@@ -16,7 +16,7 @@ namespace localgod\Console;
  * @category Console
  * @author Johannes Skov Frandsen <localgod@heaven.dk>
  * @license http://www.opensource.org/licenses/mit-license.php MIT License
- * @link https://github.com/localgod/ConsoleColor
+ * @link https://github.com/localgod/console-color
  */
 class ColorTest extends \PHPUnit_Framework_TestCase
 {
