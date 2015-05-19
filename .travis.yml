@@ -11,12 +11,12 @@ php:
 before_script:
 - sudo apt-get update > /dev/null
 - sudo apt-get install -qq unzip expect graphviz libmagickwand-dev
-- expect build/tools/tools.expect
-- build/getTools.sh
+- expect ./build/tools/tools.expect
+- ./build/getTools.sh
 - phpenv rehash
-- php composer.phar
-- php composer.phar install
-- php composer.phar update
+- php ./composer.phar
+- php ./composer.phar install
+- php ./composer.phar update
 
 matrix:
   allow_failures:
