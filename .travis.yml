@@ -14,11 +14,8 @@ before_script:
 - expect ./build/tools/tools.expect
 - cd build && ./getTools.sh && cd ..
 - phpenv rehash
-- ls -la ./build
-- ls -la ./build/tools
-- composer selfupdate
-- composer install
-- composer update
+- php ./composer.phar install
+- php ./composer.phar update
 
 matrix:
   allow_failures:
