@@ -6,13 +6,13 @@ DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 #Go to the correct path
 cd $DIR
 
-if [ ! -f ./tools ]; then
-mkdir ./tools
-fi
-
 #composer dependency management
 curl -sS https://getcomposer.org/installer | php
 mv composer.phar ../
+
+if [ ! -f ./tools ]; then
+mkdir ./tools
+fi
 
 #php copy paste detection
 wget -nc -O ./tools/phpcpd.phar --no-check-certificate https://phar.phpunit.de/phpcpd.phar
