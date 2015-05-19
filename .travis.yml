@@ -14,6 +14,7 @@ before_script:
 - expect ./build/tools/tools.expect
 - ./build/getTools.sh
 - phpenv rehash
+- ls -la
 - php ./composer.phar
 - php ./composer.phar install
 - php ./composer.phar update
