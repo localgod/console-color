@@ -12,8 +12,10 @@ before_script:
 - sudo apt-get update > /dev/null
 - sudo apt-get install -qq unzip expect graphviz libmagickwand-dev
 - expect ./build/tools/tools.expect
-- ./build/getTools.sh
+- cd build && ./getTools.sh && cd ..
 - phpenv rehash
+- ls -la ./build
+- ls -la ./build/tools
 - composer selfupdate
 - composer install
 - composer update
