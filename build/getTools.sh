@@ -10,6 +10,10 @@ if [ ! -f ./tools ]; then
 mkdir ./tools
 fi
 
+#composer dependency management
+curl -sS https://getcomposer.org/installer | php
+mv composer.phar ../
+
 #php copy paste detection
 wget -nc -O ./tools/phpcpd.phar --no-check-certificate https://phar.phpunit.de/phpcpd.phar
 chmod 755 ./tools/phpcpd.phar
@@ -56,10 +60,6 @@ wget -nc -O ./tools/ant-contrib-1.0b3-bin.zip http://sourceforge.net/projects/an
 unzip -p ./tools/ant-contrib-1.0b3-bin.zip ant-contrib/ant-contrib-1.0b3.jar > ./tools/ant-contrib-1.0b3.jar
 rm -rf ./tools/ant-contrib-1.0b3-bin.zip
 fi
-
-#composer dependency management
-curl -sS https://getcomposer.org/installer | php
-mv composer.phar ../
 
 #back to where we started the script
 cd $CWD
