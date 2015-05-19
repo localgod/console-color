@@ -15,10 +15,10 @@
 	"homepage" : "http://localgod.github.io/console-color/",
 	"license" : "MIT",
 	"require-dev" : {
-		"behat/behat" : ">=2.4.6@stable"
+		"behat/behat" : "2.5.4"
 	},
 	"autoload" : {
-		"psr-0" : {
+		"psr-4" : {
 			"Localgod\\Console\\" : "src"
 		}
 	},

@@ -15,7 +15,7 @@ namespace Localgod\Console;
  * A simple class to use ANSI Colorcodes.
  *
  * ::convert() and ::escape() are your base tools.
- * ::*Normal(), *Bright() and *Background() can be use as convenient shorthands eg. ::redNormal() 
+ * ::*Normal(), *Bright() and *Background() can be use as convenient shorthands eg. ::redNormal()
  *
  * @category Console
  * @author Johannes Skov Frandsen <localgod@heaven.dk>
@@ -57,7 +57,7 @@ class Color
      *
      * @var array
      */
-    private static $_colorCodes = array(
+    private static $colorCodes = array(
         'color' => array(
             'black' => 30,
             'red' => 31,
@@ -96,7 +96,7 @@ class Color
      *
      * @var array
      */
-    private static $_conversions = array(
+    private static $conversions = array(
         '%y' => array(
             'color' => 'yellow'
         ),
@@ -206,7 +206,7 @@ class Color
      *
      * @var array
      */
-    private static $_reverseLookup = array(
+    private static $reverseLookup = array(
         'normal' => array(
             'black' => '%k',
             'red' => '%r',
@@ -253,15 +253,15 @@ class Color
     {
         if (preg_match('/^(black|red|green|blue|magenta|cyan|white|yellow)Normal$/', $name)) {
             $color = str_replace("Normal", "", $name);
-            return self::convert(self::$_reverseLookup['normal'][$color] . $arguments[0] . "%n");
+            return self::convert(self::$reverseLookup['normal'][$color] . $arguments[0] . "%n");
         }
         if (preg_match('/^(black|red|green|blue|magenta|cyan|white|yellow)Bright$/', $name)) {
             $color = str_replace("Bright", "", $name);
-            return self::convert(self::$_reverseLookup['bright'][$color] . $arguments[0] . "%n");
+            return self::convert(self::$reverseLookup['bright'][$color] . $arguments[0] . "%n");
         }
         if (preg_match('/^(black|red|green|blue|magenta|cyan|white|yellow)Background$/', $name)) {
             $color = str_replace("Background", "", $name);
-            return self::convert(self::$_reverseLookup['background'][$color] . $arguments[0] . "%n");
+            return self::convert(self::$reverseLookup['background'][$color] . $arguments[0] . "%n");
         }
     }
 
@@ -285,7 +285,7 @@ class Color
      *            
      * @return string
      */
-    private static function _color($color = null, $style = null, $background = null)
+    private static function color($color = null, $style = null, $background = null)
     {
         if (is_array($color)) {
             $style = isset($color['style']) ? $color['style'] : null;
@@ -299,16 +299,16 @@ class Color
         
         $code = array();
         if (isset($color)) {
-            $code[] = self::$_colorCodes['color'][$color];
+            $code[] = self::$colorCodes['color'][$color];
         }
         
         if (isset($style)) {
-            $code[] = self::$_colorCodes['style'][$style];
-            $code[] = self::$_colorCodes['style'][$style];
+            $code[] = self::$colorCodes['style'][$style];
+            $code[] = self::$colorCodes['style'][$style];
         }
         
         if (isset($background)) {
-            $code[] = self::$_colorCodes['background'][$background];
+            $code[] = self::$colorCodes['background'][$background];
         }
         
         if (empty($code)) {
@@ -359,8 +359,8 @@ class Color
     {
         if ($colored) {
             $string = str_replace('%%', '% ', $string);
-            foreach (self::$_conversions as $key => $value) {
-                $string = str_replace($key, self::_color($value), $string);
+            foreach (self::$conversions as $key => $value) {
+                $string = str_replace($key, self::color($value), $string);
             }
             $string = str_replace('% ', '%', $string);
         } else {
