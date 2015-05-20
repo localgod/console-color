@@ -1,15 +1,16 @@
 [![Build Status](https://travis-ci.org/localgod/console-color.svg?branch=psr4)](https://travis-ci.org/localgod/console-color)
 
+# Console Color #
 **console-color** makes it simple to work with ANSI color codes in you console.
 
-### Base methods
+## Base methods ##
 **escape($string)**
 : Escapes % so they don't get interpreted as color codes; Takes a string as an argument and returns the escaped string.
 
 **convert($string, $colored = true))**
 : Transform color codes whithin supplied string into ANSI control codes
 
-### Magic methods
+## Magic methods ##
 
 For each of the colors supported you can call:
 
@@ -19,7 +20,7 @@ For each of the colors supported you can call:
  
 to quickly format the string accordingly.   
 
-### Code conversion table
+## Code conversion table ##
 
 <table>
 	<thead>
@@ -91,7 +92,7 @@ to quickly format the string accordingly.
 | %n    | Resets the color   |
 | %%    | A single %         |
 
-### Examples
+## Examples ##
 ```php
 use Localgod\Console\Color;
 // Let's add a little color to the world
@@ -108,5 +109,6 @@ print Color::convert("3 out of 4 people make up about %r75%% %nof the world popu
 // Or you can use the escape() method.
 print Color::convert("%y".Color::escape('If you feel that you do everying wrong, be random, there\'s a 50% Chance of making the right decision.')."%n\n");
 ```
-### Inspiration
+
+## Inspiration ##
 This projects is a reimplementation of the ideas used in http://pear.php.net/package/Console_Color/

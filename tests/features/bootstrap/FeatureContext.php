@@ -7,7 +7,6 @@ use Behat\Gherkin\Node\PyStringNode;
 use Behat\Gherkin\Node\TableNode;
 use Localgod\Console\Color;
 
-
 /**
  * Features context.
  */
