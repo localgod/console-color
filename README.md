@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/localgod/console-color.svg?branch=master)](https://travis-ci.org/localgod/console-color)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/localgod/console-color/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/localgod/console-color/?branch=master)
 
 # Console Color #
 **console-color** makes it simple to work with ANSI color codes in you console.
