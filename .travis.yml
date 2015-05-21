@@ -1,19 +1,25 @@
 ---
 language: php
+os:
+- linux
+- osx
 php:
 - 5.3
 - 5.4
 - 5.5
+- 5.6
 before_script:
-- sudo apt-get install -qq expect graphviz libmagickwand-dev
-- expect build/tools/tools.expect
+- sudo apt-get update > /dev/null
+- sudo apt-get install -qq unzip expect graphviz libmagickwand-dev
+- expect ./build/tools/tools.expect
+- cd build && ./getTools.sh && cd ..
 - phpenv rehash
-- composer self-update
-- composer install
-- composer update
+- php ./composer.phar install
+- php ./composer.phar update
 
 matrix:
   allow_failures:
-  - php: 5.5
+  - php: 5.6
+  - os: osx
 script:
-- ant travis -Dphpunit.testdox=true -Dpackage.version=$TRAVIS_BUILD_NUMBER
+- ant travis -Dphpunit.testdox=true -Dpackage.version.patch=$TRAVIS_BUILD_NUMBER
