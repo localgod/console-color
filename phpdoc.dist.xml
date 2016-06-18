@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <phpdoc>
-<title>Karla</title>
+<title>console-color</title>
 	<parser>
-		<target>target/phpdoc</target>
+		<target>build/phpdoc</target>
 	</parser>
 	<transformer>
-		<target>target/phpdoc</target>
+		<target>build/phpdoc</target>
 	</transformer>
 	<files>
 		<directory>src</directory>

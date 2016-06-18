@@ -1,25 +1,33 @@
 ---
 language: php
+
 os:
 - linux
-- osx
+
 php:
-- 5.3
-- 5.4
-- 5.5
 - 5.6
+- 7.0
+
+before_install:
+- pip install --user codecov
+
 before_script:
-- sudo apt-get update > /dev/null
-- sudo apt-get install -qq unzip expect graphviz libmagickwand-dev
-- expect ./build/tools/tools.expect
-- cd build && ./getTools.sh && cd ..
+- composer self-update
+- composer install
+- wget -nc -O ./phpunit.phar --no-check-certificate https://phar.phpunit.de/phpunit.phar
+- chmod 755 ./phpunit.phar
+- wget -nc -O ./phpcs.phar --no-check-certificate https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
+- chmod 755 ./phpcs.phar
 - phpenv rehash
-- php ./composer.phar install
-- php ./composer.phar update
 
 matrix:
   allow_failures:
-  - php: 5.6
-  - os: osx
+  - php: 7.0
+  
 script:
-- ant travis -Dphpunit.testdox=true -Dpackage.version.patch=$TRAVIS_BUILD_NUMBER
+- rm -rf ./build
+- php ./phpcs.phar
+- php ./phpunit.phar --testdox -c ./phpunit.xml.dist
+
+after_success:
+- codecov
