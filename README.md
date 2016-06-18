@@ -1,8 +1,13 @@
-[![Build Status](https://travis-ci.org/localgod/console-color.svg?branch=master)](https://travis-ci.org/localgod/console-color)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/localgod/console-color/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/localgod/console-color/?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/localgod/console-color/badges/quality-score.png)]
+(https://scrutinizer-ci.com/g/localgod/console-color/)
+[![Build Status](https://travis-ci.org/localgod/console-colorv.svg)](https://travis-ci.org/Vlocalgod/console-color)
+[![Dependency Status](https://www.versioneye.com/user/projects/554c76ee5d47f26231000239/badge.svg?style=flat)](https://www.versioneye.com/user/projects/554c76ee5d47f26231000239)
+[![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%205.6-8892BF.svg?style=flat-square)](https://php.net/)
+[![codecov.io](http://codecov.io/github/localgod/console-color/coverage.svg)](http://codecov.io/github/localgod/console-color)
+![Version Eye](http://php-eye.com/badge/localgod/console-color/tested.svg)
+[![PHPPackages Rank](http://phppackages.org/p/localgod/console-color/badge/rank.svg)](http://phppackages.org/p/localgod/console-color)
 [![Latest Stable Version](https://poser.pugx.org/localgod/console-color/v/stable)](https://packagist.org/packages/localgod/console-color)
 [![License](https://poser.pugx.org/localgod/console-color/license)](https://packagist.org/packages/localgod/console-color)
-[![Dependency Status](https://www.versioneye.com/user/projects/554c76ee5d47f26231000239/badge.svg?style=flat)](https://www.versioneye.com/user/projects/554c76ee5d47f26231000239)
 
 # Console Color #
 **console-color** makes it simple to work with ANSI color codes in you console.

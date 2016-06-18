@@ -30,7 +30,7 @@ class FeatureContext implements Context, SnippetAcceptingContext
      */
     public function iCallTheConvertMethodWithTheRedArgument()
     {
-        $this->output = Color::redText('red');
+        $this->output = Color::redNormal('red');
     }
 
     /**
@@ -39,7 +39,7 @@ class FeatureContext implements Context, SnippetAcceptingContext
     public function iShouldGetAStringInARedFont()
     {
         if (! preg_match('/\[31mred\[0m/', $this->output)) {
-            throw new Exception("Actual output is:\n" . $this->output);
+            throw new \Exception("Actual output is:\n" . $this->output);
         }
     }
 }

@@ -1,4 +1,5 @@
 <?php
+use Localgod\Console\Color;
 /**
  * Console color
  *
@@ -9,7 +10,6 @@
  * @license  http://www.opensource.org/licenses/mit-license.php MIT License
  * @link     https://github.com/localgod/console-color
  */
-use Localgod\Console\Color;
 
 /**
  * Test class for color
@@ -29,8 +29,8 @@ class ColorTest extends \PHPUnit_Framework_TestCase
      *
      * @return void
      */
-    public function dummy()
+    public function redTxt()
     {
-        $this->markTestIncomplete('This test has not been implemented yet.');
+        $this->assertEquals('[31mred[0m', Color::redNormal('red'));
     }
 }
