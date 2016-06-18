@@ -28,7 +28,6 @@ script:
 - rm -rf ./build
 - php ./phpcs.phar
 - php ./phpunit.phar --testdox -c ./phpunit.xml.dist
-- ./bin/behat
 
 after_success:
 - codecov
