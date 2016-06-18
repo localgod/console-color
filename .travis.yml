@@ -17,7 +17,6 @@ before_install:
 before_script:
 - sudo apt-get update > /dev/null
 - sudo apt-get install -qq unzip expect graphviz libmagickwand-dev
-- expect ./build/tools/tools.expect
 - composer self-update
 - composer install
 - wget -nc -O ./phpDocumentor.phar http://www.phpdoc.org/phpDocumentor.phar
