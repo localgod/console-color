@@ -21,7 +21,7 @@ namespace Localgod\Console;
  * @author Johannes Skov Frandsen <localgod@heaven.dk>
  * @license http://www.opensource.org/licenses/mit-license.php MIT License
  * @link https://github.com/localgod/console-color
- *      
+ *
  * @method string blackNormal($string) Encode the string as black
  * @method string redNormal($string) Encode the string as red
  * @method string greenNormal($string) Encode the string as green
@@ -30,7 +30,7 @@ namespace Localgod\Console;
  * @method string cyanNormal($string) Encode the string as cyan
  * @method string whiteNormal($string) Encode the string as white
  * @method string yellowNormal($string) Encode the string as yellow
- *        
+ *
  * @method string blackBright($string) Encode the string as bright black
  * @method string redBright($string) Encode the string as bright red
  * @method string greenBright($string) Encode the string as bright green
@@ -39,7 +39,7 @@ namespace Localgod\Console;
  * @method string cyanBright($string) Encode the string as bright cyan
  * @method string whiteBright($string) Encode the string as bright white
  * @method string yellowBright($string) Encode the string as bright yellow
- *        
+ *
  * @method string blackBackground($string) Encode the string with black background
  * @method string redBackground($string) Encode the string with red background
  * @method string greenBackground($string) Encode the string with green background
@@ -246,7 +246,7 @@ class Color
      *            Name of method to call
      * @param array $arguments
      *            Arguments to method
-     *            
+     *
      * @return string
      */
     public static function __callStatic($name, $arguments)
@@ -282,7 +282,7 @@ class Color
      *            Optional name of the style
      * @param string $background
      *            Optional name of the background color
-     *            
+     *
      * @return string
      */
     private static function color($color = null, $style = null, $background = null)
@@ -352,7 +352,7 @@ class Color
      *            String to convert
      * @param bool $colored
      *            Should the string be colored?
-     *            
+     *
      * @return string
      */
     public static function convert($string, $colored = true)
@@ -375,7 +375,7 @@ class Color
      *
      * @param string $string
      *            String to escape
-     *            
+     *
      * @return string
      */
     public static function escape($string)
