@@ -251,17 +251,18 @@ class Color
      */
     public static function __callStatic($name, $arguments)
     {
-        if (preg_match('/^(black|red|green|blue|magenta|cyan|white|yellow)Normal$/', $name)) {
+        $colors = 'black|red|green|blue|magenta|cyan|white|yellow';
+        if (preg_match('/^('.$colors.')Normal$/', $name)) {
             $color = str_replace("Normal", "", $name);
-            return self::convert(self::$reverseLookup['normal'][$color] . $arguments[0] . "%n");
+            return static::convert(static::$reverseLookup['normal'][$color] . $arguments[0] . "%n");
         }
-        if (preg_match('/^(black|red|green|blue|magenta|cyan|white|yellow)Bright$/', $name)) {
+        if (preg_match('/^('.$colors.')Bright$/', $name)) {
             $color = str_replace("Bright", "", $name);
-            return self::convert(self::$reverseLookup['bright'][$color] . $arguments[0] . "%n");
+            return static::convert(static::$reverseLookup['bright'][$color] . $arguments[0] . "%n");
         }
-        if (preg_match('/^(black|red|green|blue|magenta|cyan|white|yellow)Background$/', $name)) {
+        if (preg_match('/^('.$colors.')Background$/', $name)) {
             $color = str_replace("Background", "", $name);
-            return self::convert(self::$reverseLookup['background'][$color] . $arguments[0] . "%n");
+            return static::convert(static::$reverseLookup['background'][$color] . $arguments[0] . "%n");
         }
     }
 
@@ -285,7 +286,7 @@ class Color
      *
      * @return string
      */
-    private static function color($color = null, $style = null, $background = null)
+    private static function ansi($color = null, $style = null, $background = null)
     {
         if (is_array($color)) {
             $style = isset($color['style']) ? $color['style'] : null;
@@ -299,16 +300,16 @@ class Color
         
         $code = array();
         if (isset($color)) {
-            $code[] = self::$colorCodes['color'][$color];
+            $code[] = static::$colorCodes['color'][$color];
         }
         
         if (isset($style)) {
-            $code[] = self::$colorCodes['style'][$style];
-            $code[] = self::$colorCodes['style'][$style];
+            $code[] = static::$colorCodes['style'][$style];
+            $code[] = static::$colorCodes['style'][$style];
         }
         
         if (isset($background)) {
-            $code[] = self::$colorCodes['background'][$background];
+            $code[] = static::$colorCodes['background'][$background];
         }
         
         if (empty($code)) {
@@ -359,8 +360,8 @@ class Color
     {
         if ($colored) {
             $string = str_replace('%%', '% ', $string);
-            foreach (self::$conversions as $key => $value) {
-                $string = str_replace($key, self::color($value), $string);
+            foreach (static::$conversions as $key => $value) {
+                $string = str_replace($key, static::ansi($value), $string);
             }
             $string = str_replace('% ', '%', $string);
         } else {
