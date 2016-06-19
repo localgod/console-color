@@ -57,4 +57,16 @@ class ColorTest extends \PHPUnit_Framework_TestCase
     {
         $this->assertEquals('[31;1mred[0m', Color::redBright('red'));
     }
+    
+    /**
+     * Test escape
+     *
+     * @test
+     *
+     * @return void
+     */
+    public function escape()
+    {
+        $this->assertEquals('[41m20%[0m', Color::convert('%1'.Color::escape('20%').'%n'));
+    }
 }
