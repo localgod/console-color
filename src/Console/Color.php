@@ -286,7 +286,7 @@ class Color
      *            
      * @return string
      */
-    private final static function ansi($color = null, $style = null, $background = null)
+    final private static function ansi($color = null, $style = null, $background = null)
     {
         if (is_array($color)) {
             $style = isset($color['style']) ? $color['style'] : null;
