@@ -2,24 +2,23 @@
 (https://scrutinizer-ci.com/g/localgod/console-color/)
 [![Build Status](https://travis-ci.org/localgod/console-color.svg)](https://travis-ci.org/localgod/console-color)
 [![Dependency Status](https://www.versioneye.com/user/projects/554c76ee5d47f26231000239/badge.svg?style=flat)](https://www.versioneye.com/user/projects/554c76ee5d47f26231000239)
-[![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%205.6-8892BF.svg?style=flat-square)](https://php.net/)
 [![codecov.io](http://codecov.io/github/localgod/console-color/coverage.svg)](http://codecov.io/github/localgod/console-color)
 ![Version Eye](http://php-eye.com/badge/localgod/console-color/tested.svg)
 [![PHPPackages Rank](http://phppackages.org/p/localgod/console-color/badge/rank.svg)](http://phppackages.org/p/localgod/console-color)
 [![Latest Stable Version](https://poser.pugx.org/localgod/console-color/v/stable)](https://packagist.org/packages/localgod/console-color)
 [![License](https://poser.pugx.org/localgod/console-color/license)](https://packagist.org/packages/localgod/console-color)
 
-# Console Color #
+# Console Color
 **console-color** makes it simple to work with ANSI color codes in you console.
 
-## Base methods ##
+## Base methods
 **escape($string)**
 : Escapes % so they don't get interpreted as color codes; Takes a string as an argument and returns the escaped string.
 
 **convert($string, $colored = true))**
 : Transform color codes whithin supplied string into ANSI control codes
 
-## Magic methods ##
+## Magic methods
 
 For each of the colors supported you can call:
 
@@ -29,7 +28,7 @@ For each of the colors supported you can call:
  
 to quickly format the string accordingly.   
 
-## Code conversion table ##
+## Code conversion table
 
 <table>
 	<thead>
@@ -101,7 +100,7 @@ to quickly format the string accordingly.
 | %n    | Resets the color   |
 | %%    | A single %         |
 
-## Examples ##
+## Examples
 ```php
 use Localgod\Console\Color;
 // Let's add a little color to the world
@@ -119,5 +118,5 @@ print Color::convert("3 out of 4 people make up about %r75%% %nof the world popu
 print Color::convert("%y".Color::escape('If you feel that you do everying wrong, be random, there\'s a 50% Chance of making the right decision.')."%n\n");
 ```
 
-## Inspiration ##
+## Inspiration
 This projects is a reimplementation of the ideas used in http://pear.php.net/package/Console_Color/

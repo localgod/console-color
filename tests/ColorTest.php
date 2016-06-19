@@ -43,7 +43,7 @@ class ColorTest extends \PHPUnit_Framework_TestCase
      */
     public function background()
     {
-        $this->assertEquals(md5('[41mred[0m'), md5(Color::redBackground('red')));
+        $this->assertEquals('[41mred[0m', Color::redBackground('red'));
     }
     
     /**
@@ -55,6 +55,6 @@ class ColorTest extends \PHPUnit_Framework_TestCase
      */
     public function bright()
     {
-        $this->assertEquals('[31;1;1mred[0m', Color::redBright('red'));
+        $this->assertEquals('[31;1mred[0m', Color::redBright('red'));
     }
 }

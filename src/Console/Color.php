@@ -21,7 +21,7 @@ namespace Localgod\Console;
  * @author Johannes Skov Frandsen <localgod@heaven.dk>
  * @license http://www.opensource.org/licenses/mit-license.php MIT License
  * @link https://github.com/localgod/console-color
- *
+ *      
  * @method string blackNormal($string) Encode the string as black
  * @method string redNormal($string) Encode the string as red
  * @method string greenNormal($string) Encode the string as green
@@ -30,7 +30,7 @@ namespace Localgod\Console;
  * @method string cyanNormal($string) Encode the string as cyan
  * @method string whiteNormal($string) Encode the string as white
  * @method string yellowNormal($string) Encode the string as yellow
- *
+ *        
  * @method string blackBright($string) Encode the string as bright black
  * @method string redBright($string) Encode the string as bright red
  * @method string greenBright($string) Encode the string as bright green
@@ -39,7 +39,7 @@ namespace Localgod\Console;
  * @method string cyanBright($string) Encode the string as bright cyan
  * @method string whiteBright($string) Encode the string as bright white
  * @method string yellowBright($string) Encode the string as bright yellow
- *
+ *        
  * @method string blackBackground($string) Encode the string with black background
  * @method string redBackground($string) Encode the string with red background
  * @method string greenBackground($string) Encode the string with green background
@@ -246,23 +246,23 @@ class Color
      *            Name of method to call
      * @param array $arguments
      *            Arguments to method
-     *
+     *            
      * @return string
      */
     public static function __callStatic($name, $arguments)
     {
         $colors = 'black|red|green|blue|magenta|cyan|white|yellow';
-        if (preg_match('/^('.$colors.')Normal$/', $name)) {
+        if (preg_match('/^(' . $colors . ')Normal$/', $name)) {
             $color = str_replace("Normal", "", $name);
-            return static::convert(static::$reverseLookup['normal'][$color] . $arguments[0] . "%n");
+            return static::convert(self::$reverseLookup['normal'][$color] . $arguments[0] . "%n");
         }
-        if (preg_match('/^('.$colors.')Bright$/', $name)) {
+        if (preg_match('/^(' . $colors . ')Bright$/', $name)) {
             $color = str_replace("Bright", "", $name);
-            return static::convert(static::$reverseLookup['bright'][$color] . $arguments[0] . "%n");
+            return static::convert(self::$reverseLookup['bright'][$color] . $arguments[0] . "%n");
         }
-        if (preg_match('/^('.$colors.')Background$/', $name)) {
+        if (preg_match('/^(' . $colors . ')Background$/', $name)) {
             $color = str_replace("Background", "", $name);
-            return static::convert(static::$reverseLookup['background'][$color] . $arguments[0] . "%n");
+            return static::convert(self::$reverseLookup['background'][$color] . $arguments[0] . "%n");
         }
     }
 
@@ -283,10 +283,10 @@ class Color
      *            Optional name of the style
      * @param string $background
      *            Optional name of the background color
-     *
+     *            
      * @return string
      */
-    private static function ansi($color = null, $style = null, $background = null)
+    private final static function ansi($color = null, $style = null, $background = null)
     {
         if (is_array($color)) {
             $style = isset($color['style']) ? $color['style'] : null;
@@ -299,17 +299,17 @@ class Color
         }
         
         $code = array();
+        
         if (isset($color)) {
-            $code[] = static::$colorCodes['color'][$color];
+            $code[] = self::$colorCodes['color'][$color];
         }
         
         if (isset($style)) {
-            $code[] = static::$colorCodes['style'][$style];
-            $code[] = static::$colorCodes['style'][$style];
+            $code[] = self::$colorCodes['style'][$style];
         }
         
         if (isset($background)) {
-            $code[] = static::$colorCodes['background'][$background];
+            $code[] = self::$colorCodes['background'][$background];
         }
         
         if (empty($code)) {
@@ -353,14 +353,14 @@ class Color
      *            String to convert
      * @param bool $colored
      *            Should the string be colored?
-     *
+     *            
      * @return string
      */
     public static function convert($string, $colored = true)
     {
         if ($colored) {
             $string = str_replace('%%', '% ', $string);
-            foreach (static::$conversions as $key => $value) {
+            foreach (self::$conversions as $key => $value) {
                 $string = str_replace($key, static::ansi($value), $string);
             }
             $string = str_replace('% ', '%', $string);
@@ -376,7 +376,7 @@ class Color
      *
      * @param string $string
      *            String to escape
-     *
+     *            
      * @return string
      */
     public static function escape($string)
