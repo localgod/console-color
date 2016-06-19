@@ -251,19 +251,16 @@ class Color
      */
     public static function __callStatic($name, $arguments)
     {
-        $colors = 'black|red|green|blue|magenta|cyan|white|yellow';
-        if (preg_match('/^(' . $colors . ')Normal$/', $name)) {
-            $color = str_replace("Normal", "", $name);
-            return static::convert(self::$reverseLookup['normal'][$color] . $arguments[0] . "%n");
-        }
-        if (preg_match('/^(' . $colors . ')Bright$/', $name)) {
-            $color = str_replace("Bright", "", $name);
-            return static::convert(self::$reverseLookup['bright'][$color] . $arguments[0] . "%n");
-        }
-        if (preg_match('/^(' . $colors . ')Background$/', $name)) {
-            $color = str_replace("Background", "", $name);
-            return static::convert(self::$reverseLookup['background'][$color] . $arguments[0] . "%n");
-        }
+        $types = implode('|',array_map('ucfirst', array_keys(self::$reverseLookup)));
+        $colors = implode('|', array_keys(self::$reverseLookup['normal']));
+        
+        $matches = array();
+        if (preg_match('/^(' . $colors . ')('.$types.')$/', $name, $matches)) {
+            $color = $matches[1];
+            $type = strtolower($matches[2]);
+            return static::convert(self::$reverseLookup[$type][$color] . $arguments[0] . "%n");
+        } 
+        return $arguments[0];
     }
 
     /**
@@ -361,7 +358,7 @@ class Color
         if ($colored) {
             $string = str_replace('%%', '% ', $string);
             foreach (self::$conversions as $key => $value) {
-                $string = str_replace($key, static::ansi($value), $string);
+                $string = str_replace($key, self::ansi($value), $string);
             }
             $string = str_replace('% ', '%', $string);
         } else {

@@ -43,6 +43,7 @@ class ColorTest extends \PHPUnit_Framework_TestCase
      */
     public function background()
     {
+        file_put_contents('background', Color::redBackground('red'));
         $this->assertEquals('[41mred[0m', Color::redBackground('red'));
     }
     
@@ -55,6 +56,7 @@ class ColorTest extends \PHPUnit_Framework_TestCase
      */
     public function bright()
     {
+        file_put_contents('bright', Color::redBright('red'));
         $this->assertEquals('[31;1mred[0m', Color::redBright('red'));
     }
     

@@ -9,6 +9,12 @@ use Localgod\Console\Color;
 class FeatureContext implements Context, SnippetAcceptingContext
 {
     /**
+     * Console output
+     * @var string
+     */
+    private $output;
+    
+    /**
      * Initializes context.
      * Every scenario gets it's own context object.
      */
