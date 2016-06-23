@@ -1,7 +1,7 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/localgod/console-color/badges/quality-score.png)]
 (https://scrutinizer-ci.com/g/localgod/console-color/)
 [![Build Status](https://travis-ci.org/localgod/console-color.svg)](https://travis-ci.org/localgod/console-color)
-[![Dependency Status](https://www.versioneye.com/user/projects/554c76ee5d47f26231000239/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/554c76ee5d47f26231000239)
+[![Dependency Status](https://www.versioneye.com/user/projects/554c76ea5d47f2511d000180/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/554c76ea5d47f2511d000180)
 [![codecov.io](http://codecov.io/github/localgod/console-color/coverage.svg)](http://codecov.io/github/localgod/console-color)
 ![Version Eye](http://php-eye.com/badge/localgod/console-color/tested.svg)
 [![PHPPackages Rank](http://phppackages.org/p/localgod/console-color/badge/rank.svg)](http://phppackages.org/p/localgod/console-color)
