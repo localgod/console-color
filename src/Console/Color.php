@@ -24,32 +24,32 @@ namespace Localgod\Console;
  * @license http://www.opensource.org/licenses/mit-license.php MIT License
  * @link https://github.com/localgod/console-color
  *
- * @method string blackNormal($string) Encode the string as black
- * @method string redNormal($string) Encode the string as red
- * @method string greenNormal($string) Encode the string as green
- * @method string blueNormal($string) Encode the string as blue
- * @method string magentaNormal($string) Encode the string as magenta
- * @method string cyanNormal($string) Encode the string as cyan
- * @method string whiteNormal($string) Encode the string as white
- * @method string yellowNormal($string) Encode the string as yellow
+ * @method static string blackNormal(string $string) Encode the string as black
+ * @method static string redNormal(string $string) Encode the string as red
+ * @method static string greenNormal(string $string) Encode the string as green
+ * @method static string blueNormal(string $string) Encode the string as blue
+ * @method static string magentaNormal(string $string) Encode the string as magenta
+ * @method static string cyanNormal(string $string) Encode the string as cyan
+ * @method static string whiteNormal(string $string) Encode the string as white
+ * @method static string yellowNormal(string $string) Encode the string as yellow
  *
- * @method string blackBright($string) Encode the string as bright black
- * @method string redBright($string) Encode the string as bright red
- * @method string greenBright($string) Encode the string as bright green
- * @method string blueBright($string) Encode the string as bright blue
- * @method string magentaBright($string) Encode the string as bright magenta
- * @method string cyanBright($string) Encode the string as bright cyan
- * @method string whiteBright($string) Encode the string as bright white
- * @method string yellowBright($string) Encode the string as bright yellow
+ * @method static string blackBright(string $string) Encode the string as bright black
+ * @method static string redBright(string $string) Encode the string as bright red
+ * @method static string greenBright(string $string) Encode the string as bright green
+ * @method static string blueBright(string $string) Encode the string as bright blue
+ * @method static string magentaBright(string $string) Encode the string as bright magenta
+ * @method static string cyanBright(string $string) Encode the string as bright cyan
+ * @method static string whiteBright(string $string) Encode the string as bright white
+ * @method static string yellowBright(string $string) Encode the string as bright yellow
  *
- * @method string blackBackground($string) Encode the string with black background
- * @method string redBackground($string) Encode the string with red background
- * @method string greenBackground($string) Encode the string with green background
- * @method string blueBackground($string) Encode the string with blue background
- * @method string magentaBackground($string) Encode the string with magenta background
- * @method string cyanBackground($string) Encode the string with cyan background
- * @method string whiteBackground($string) Encode the string with white background
- * @method string yellowBackground($string) Encode the string with yellow background
+ * @method static string blackBackground(string $string) Encode the string with black background
+ * @method static string redBackground(string $string) Encode the string with red background
+ * @method static string greenBackground(string $string) Encode the string with green background
+ * @method static string blueBackground(string $string) Encode the string with blue background
+ * @method static string magentaBackground(string $string) Encode the string with magenta background
+ * @method static string cyanBackground(string $string) Encode the string with cyan background
+ * @method static string whiteBackground(string $string) Encode the string with white background
+ * @method static string yellowBackground(string $string) Encode the string with yellow background
  */
 class Color
 {

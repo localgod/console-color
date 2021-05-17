@@ -1,5 +1,4 @@
 <?php
-use Localgod\Console\Color;
 /**
  * Console color
  *
@@ -10,7 +9,7 @@ use Localgod\Console\Color;
  * @license  http://www.opensource.org/licenses/mit-license.php MIT License
  * @link     https://github.com/localgod/console-color
  */
-
+use Localgod\Console\Color;
 /**
  * Test class for color
  *

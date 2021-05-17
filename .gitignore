@@ -1,8 +1,5 @@
 /composer.lock
 /bin
 /vendor
-/clover.xml
-/junit.xml
-/coverage
 /tests/unit/.phpunit.result.cache
 /tests/unit/_cache/*
