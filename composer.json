@@ -38,7 +38,7 @@
 	},
 	"autoload" : {
 		"psr-4" : {
-			"Localgod\\Console\\" : "src/console"
+			"Localgod\\Console\\" : "src/Console"
 		}
 	},
 	"minimum-stability" : "dev",

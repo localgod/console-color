@@ -1,10 +1,10 @@
 <?php
 /**
- * Console color
+ * Console color test
  *
  * PHP version 8
  *
- * @category Console
+ * @category Unittest
  * @author   Johannes Skov Frandsen <jsf@greenoak.dk>
  * @license  http://www.opensource.org/licenses/mit-license.php MIT License
  * @link     https://github.com/localgod/console-color
@@ -13,7 +13,7 @@ use Localgod\Console\Color;
 /**
  * Test class for color
  *
- * @category Console
+ * @category Unittest
  * @author Johannes Skov Frandsen <jsf@greenoak.dk>
  * @license http://www.opensource.org/licenses/mit-license.php MIT License
  * @link https://github.com/localgod/console-color
