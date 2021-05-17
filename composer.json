@@ -4,7 +4,7 @@
 	"type" : "library",
 	"authors" : [{
 			"name" : "Johannes Skov Frandsen",
-			"email" : "localgod@heaven.dk",
+			"email" : "jsf@greenoak.dk",
 			"homepage" : "https://github.com/localgod",
 			"role" : "Lead"
 		}
@@ -12,14 +12,33 @@
 	"keywords" : [
 		"console color"
 	],
+	"scripts": {
+		"unit": [
+			"./bin/phpunit --testdox --configuration ./tests/unit/phpunit.xml"
+		],
+		"integration": [
+			"./bin/behat"
+		],
+		"cs": [
+			"./bin/phpcs"
+		],
+		"cbf": [
+			"./bin/phpcbf"
+		]
+	},
 	"homepage" : "http://localgod.github.io/console-color/",
 	"license" : "MIT",
+	"require": {
+		"php": ">=8.0"
+	},
 	"require-dev" : {
-		"behat/behat" : ">3.1.0"
+		"behat/behat": "v3.8.1",
+		"squizlabs/php_codesniffer": "3.6.0",
+		"phpunit/phpunit": "9.5.4"
 	},
 	"autoload" : {
 		"psr-4" : {
-			"Localgod\\Console\\" : "src/console"
+			"Localgod\\Console\\" : "src/Console"
 		}
 	},
 	"minimum-stability" : "dev",

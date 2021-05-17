@@ -1,14 +1,16 @@
 <?php
+
 /**
  * Console color
  *
- * PHP version >=5.3
+ * PHP version >=8
  *
  * @category Console
- * @author   Johannes Skov Frandsen <localgod@heaven.dk>
+ * @author   Johannes Skov Frandsen <jsf@greenoak.dk>
  * @license  http://www.opensource.org/licenses/mit-license.php MIT License
  * @link     https://github.com/localgod/console-color
  */
+
 namespace Localgod\Console;
 
 /**
@@ -18,36 +20,36 @@ namespace Localgod\Console;
  * ::*Normal(), *Bright() and *Background() can be use as convenient shorthands eg. ::redNormal()
  *
  * @category Console
- * @author Johannes Skov Frandsen <localgod@heaven.dk>
+ * @author Johannes Skov Frandsen <jsf@greenoak.dk>
  * @license http://www.opensource.org/licenses/mit-license.php MIT License
  * @link https://github.com/localgod/console-color
  *
- * @method string blackNormal($string) Encode the string as black
- * @method string redNormal($string) Encode the string as red
- * @method string greenNormal($string) Encode the string as green
- * @method string blueNormal($string) Encode the string as blue
- * @method string magentaNormal($string) Encode the string as magenta
- * @method string cyanNormal($string) Encode the string as cyan
- * @method string whiteNormal($string) Encode the string as white
- * @method string yellowNormal($string) Encode the string as yellow
+ * @method static string blackNormal(string $string) Encode the string as black
+ * @method static string redNormal(string $string) Encode the string as red
+ * @method static string greenNormal(string $string) Encode the string as green
+ * @method static string blueNormal(string $string) Encode the string as blue
+ * @method static string magentaNormal(string $string) Encode the string as magenta
+ * @method static string cyanNormal(string $string) Encode the string as cyan
+ * @method static string whiteNormal(string $string) Encode the string as white
+ * @method static string yellowNormal(string $string) Encode the string as yellow
  *
- * @method string blackBright($string) Encode the string as bright black
- * @method string redBright($string) Encode the string as bright red
- * @method string greenBright($string) Encode the string as bright green
- * @method string blueBright($string) Encode the string as bright blue
- * @method string magentaBright($string) Encode the string as bright magenta
- * @method string cyanBright($string) Encode the string as bright cyan
- * @method string whiteBright($string) Encode the string as bright white
- * @method string yellowBright($string) Encode the string as bright yellow
+ * @method static string blackBright(string $string) Encode the string as bright black
+ * @method static string redBright(string $string) Encode the string as bright red
+ * @method static string greenBright(string $string) Encode the string as bright green
+ * @method static string blueBright(string $string) Encode the string as bright blue
+ * @method static string magentaBright(string $string) Encode the string as bright magenta
+ * @method static string cyanBright(string $string) Encode the string as bright cyan
+ * @method static string whiteBright(string $string) Encode the string as bright white
+ * @method static string yellowBright(string $string) Encode the string as bright yellow
  *
- * @method string blackBackground($string) Encode the string with black background
- * @method string redBackground($string) Encode the string with red background
- * @method string greenBackground($string) Encode the string with green background
- * @method string blueBackground($string) Encode the string with blue background
- * @method string magentaBackground($string) Encode the string with magenta background
- * @method string cyanBackground($string) Encode the string with cyan background
- * @method string whiteBackground($string) Encode the string with white background
- * @method string yellowBackground($string) Encode the string with yellow background
+ * @method static string blackBackground(string $string) Encode the string with black background
+ * @method static string redBackground(string $string) Encode the string with red background
+ * @method static string greenBackground(string $string) Encode the string with green background
+ * @method static string blueBackground(string $string) Encode the string with blue background
+ * @method static string magentaBackground(string $string) Encode the string with magenta background
+ * @method static string cyanBackground(string $string) Encode the string with cyan background
+ * @method static string whiteBackground(string $string) Encode the string with white background
+ * @method static string yellowBackground(string $string) Encode the string with yellow background
  */
 class Color
 {
@@ -57,7 +59,7 @@ class Color
      *
      * @var array
      */
-    private static $colorCodes = array(
+    private static array $colorCodes = array(
         'color' => array(
             'black' => 30,
             'red' => 31,
@@ -96,7 +98,7 @@ class Color
      *
      * @var array
      */
-    private static $conversions = array(
+    private static array $conversions = array(
         '%y' => array(
             'color' => 'yellow'
         ),
@@ -206,7 +208,7 @@ class Color
      *
      * @var array
      */
-    private static $reverseLookup = array(
+    private static array $reverseLookup = array(
         'normal' => array(
             'black' => '%k',
             'red' => '%r',
@@ -249,13 +251,13 @@ class Color
      *
      * @return string
      */
-    public static function __callStatic($name, $arguments)
+    public static function __callStatic(string $name, array $arguments): string
     {
         $types = implode('|', array_map('ucfirst', array_keys(self::$reverseLookup)));
         $colors = implode('|', array_keys(self::$reverseLookup['normal']));
-        
+
         $matches = array();
-        if (preg_match('/^(' . $colors . ')('.$types.')$/', $name, $matches)) {
+        if (preg_match('/^(' . $colors . ')(' . $types . ')$/', $name, $matches)) {
             $color = $matches[1];
             $type = strtolower($matches[2]);
             return static::convert(self::$reverseLookup[$type][$color] . $arguments[0] . "%n");
@@ -283,36 +285,36 @@ class Color
      *
      * @return string
      */
-    final private static function ansi($color = null, $style = null, $background = null)
+    private static function ansi(mixed $color = null, string|null $style = null, string|null $background = null): string
     {
         if (is_array($color)) {
             $style = isset($color['style']) ? $color['style'] : null;
             $background = isset($color['background']) ? $color['background'] : null;
             $color = isset($color['color']) ? $color['color'] : null;
         }
-        
+
         if ($color == 'reset') {
             return "\033[0m";
         }
-        
+
         $code = array();
-        
+
         if (isset($color)) {
             $code[] = self::$colorCodes['color'][$color];
         }
-        
+
         if (isset($style)) {
             $code[] = self::$colorCodes['style'][$style];
         }
-        
+
         if (isset($background)) {
             $code[] = self::$colorCodes['background'][$background];
         }
-        
+
         if (empty($code)) {
             $code[] = 0;
         }
-        
+
         $code = implode(';', $code);
         return "\033[{$code}m";
     }
@@ -353,7 +355,7 @@ class Color
      *
      * @return string
      */
-    public static function convert($string, $colored = true)
+    public static function convert(string $string, bool $colored = true): string
     {
         if ($colored) {
             $string = str_replace('%%', '% ', $string);
@@ -364,7 +366,7 @@ class Color
         } else {
             $string = preg_replace('/%((%)|.)/', '$2', $string);
         }
-        
+
         return $string;
     }
 
@@ -376,7 +378,7 @@ class Color
      *
      * @return string
      */
-    public static function escape($string)
+    public static function escape(string $string): string
     {
         return str_replace('%', '%%', $string);
     }

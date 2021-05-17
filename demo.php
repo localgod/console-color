@@ -2,10 +2,10 @@
 /**
  * Console color demo
  *
- * PHP version >=5.3
+ * PHP version >=8
  *
  * @category Console
- * @author   Johannes Skov Frandsen <localgod@heaven.dk>
+ * @author   Johannes Skov Frandsen <jsf@greenoak.dk>
  * @license  http://www.opensource.org/licenses/mit-license.php MIT License
  * @link     https://github.com/localgod/console-color
  */

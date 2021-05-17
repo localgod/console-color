@@ -1,9 +1,5 @@
 /composer.lock
-/composer.phar
 /bin
 /vendor
-/.buildpath
-/.project
-/.settings
-/build
-*.phar
+/tests/unit/.phpunit.result.cache
+/tests/unit/_cache/*
