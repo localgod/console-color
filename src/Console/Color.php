@@ -1,14 +1,16 @@
 <?php
+
 /**
  * Console color
  *
- * PHP version >=5.3
+ * PHP version >=8
  *
  * @category Console
- * @author   Johannes Skov Frandsen <localgod@heaven.dk>
+ * @author   Johannes Skov Frandsen <jsf@greenoak.dk>
  * @license  http://www.opensource.org/licenses/mit-license.php MIT License
  * @link     https://github.com/localgod/console-color
  */
+
 namespace Localgod\Console;
 
 /**
@@ -18,7 +20,7 @@ namespace Localgod\Console;
  * ::*Normal(), *Bright() and *Background() can be use as convenient shorthands eg. ::redNormal()
  *
  * @category Console
- * @author Johannes Skov Frandsen <localgod@heaven.dk>
+ * @author Johannes Skov Frandsen <jsf@greenoak.dk>
  * @license http://www.opensource.org/licenses/mit-license.php MIT License
  * @link https://github.com/localgod/console-color
  *
@@ -57,7 +59,7 @@ class Color
      *
      * @var array
      */
-    private static $colorCodes = array(
+    private static array $colorCodes = array(
         'color' => array(
             'black' => 30,
             'red' => 31,
@@ -96,7 +98,7 @@ class Color
      *
      * @var array
      */
-    private static $conversions = array(
+    private static array $conversions = array(
         '%y' => array(
             'color' => 'yellow'
         ),
@@ -206,7 +208,7 @@ class Color
      *
      * @var array
      */
-    private static $reverseLookup = array(
+    private static array $reverseLookup = array(
         'normal' => array(
             'black' => '%k',
             'red' => '%r',
@@ -249,13 +251,13 @@ class Color
      *
      * @return string
      */
-    public static function __callStatic($name, $arguments)
+    public static function __callStatic(string $name, array $arguments): string
     {
         $types = implode('|', array_map('ucfirst', array_keys(self::$reverseLookup)));
         $colors = implode('|', array_keys(self::$reverseLookup['normal']));
-        
+
         $matches = array();
-        if (preg_match('/^(' . $colors . ')('.$types.')$/', $name, $matches)) {
+        if (preg_match('/^(' . $colors . ')(' . $types . ')$/', $name, $matches)) {
             $color = $matches[1];
             $type = strtolower($matches[2]);
             return static::convert(self::$reverseLookup[$type][$color] . $arguments[0] . "%n");
@@ -283,36 +285,36 @@ class Color
      *
      * @return string
      */
-    final private static function ansi($color = null, $style = null, $background = null)
+    private static function ansi(mixed $color = null, string|null $style = null, string|null $background = null): string
     {
         if (is_array($color)) {
             $style = isset($color['style']) ? $color['style'] : null;
             $background = isset($color['background']) ? $color['background'] : null;
             $color = isset($color['color']) ? $color['color'] : null;
         }
-        
+
         if ($color == 'reset') {
             return "\033[0m";
         }
-        
+
         $code = array();
-        
+
         if (isset($color)) {
             $code[] = self::$colorCodes['color'][$color];
         }
-        
+
         if (isset($style)) {
             $code[] = self::$colorCodes['style'][$style];
         }
-        
+
         if (isset($background)) {
             $code[] = self::$colorCodes['background'][$background];
         }
-        
+
         if (empty($code)) {
             $code[] = 0;
         }
-        
+
         $code = implode(';', $code);
         return "\033[{$code}m";
     }
@@ -353,7 +355,7 @@ class Color
      *
      * @return string
      */
-    public static function convert($string, $colored = true)
+    public static function convert(string $string, bool $colored = true): string
     {
         if ($colored) {
             $string = str_replace('%%', '% ', $string);
@@ -364,7 +366,7 @@ class Color
         } else {
             $string = preg_replace('/%((%)|.)/', '$2', $string);
         }
-        
+
         return $string;
     }
 
@@ -376,7 +378,7 @@ class Color
      *
      * @return string
      */
-    public static function escape($string)
+    public static function escape(string $string): string
     {
         return str_replace('%', '%%', $string);
     }

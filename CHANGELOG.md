@@ -7,6 +7,11 @@ This projct adheres to [Keep a CHANGELOG](http://keepachangelog.com/)
 
 ## [Unreleased]
 
+## [1.0.3] - 2021-05-17
+
+### Updated
+- Made code php8 compatible
+
 ## [1.0.2] - 2016-06-19
 ### Fixed
 - Small bug when using bright

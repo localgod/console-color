@@ -1,4 +1,4 @@
-Feature: Identify
+Feature: Print console colors
   In order print colored strings in console
   As a developer
   I want to

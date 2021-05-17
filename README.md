@@ -1,9 +1,4 @@
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/localgod/console-color/badges/quality-score.png)]
-(https://scrutinizer-ci.com/g/localgod/console-color/)
-[![Build Status](https://travis-ci.org/localgod/console-color.svg)](https://travis-ci.org/localgod/console-color)
-[![Dependency Status](https://www.versioneye.com/user/projects/554c76ea5d47f2511d000180/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/554c76ea5d47f2511d000180)
-[![codecov.io](http://codecov.io/github/localgod/console-color/coverage.svg)](http://codecov.io/github/localgod/console-color)
-![Version Eye](http://php-eye.com/badge/localgod/console-color/tested.svg)
+[![Main](https://github.com/localgod/console-color/actions/workflows/php.yml/badge.svg?branch=master)](https://github.com/localgod/karla/actions/workflows/php.yml)
 [![PHPPackages Rank](http://phppackages.org/p/localgod/console-color/badge/rank.svg)](http://phppackages.org/p/localgod/console-color)
 [![Latest Stable Version](https://poser.pugx.org/localgod/console-color/v/stable)](https://packagist.org/packages/localgod/console-color)
 [![License](https://poser.pugx.org/localgod/console-color/license)](https://packagist.org/packages/localgod/console-color)
