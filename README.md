@@ -1,4 +1,4 @@
-[![Main](https://github.com/localgod/console-color/actions/workflows/php.yml/badge.svg?branch=master)](https://github.com/localgod/karla/actions/workflows/php.yml)
+[![Main](https://github.com/localgod/console-color/actions/workflows/php.yml/badge.svg?branch=master)](https://github.com/localgod/console-color/actions/workflows/php.yml)
 [![Latest Stable Version](https://poser.pugx.org/localgod/console-color/v/stable)](https://packagist.org/packages/localgod/console-color)
 [![License](https://poser.pugx.org/localgod/console-color/license)](https://packagist.org/packages/localgod/console-color)
 
