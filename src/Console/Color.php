@@ -53,7 +53,6 @@ namespace Localgod\Console;
  */
 class Color
 {
-
     /**
      * Color Codes
      *
