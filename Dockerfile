@@ -24,7 +24,7 @@ ARG jq_version=1.6-r1
 ARG git_version=2.36.6-r0
 ARG imagemagick_version=7.1.0.50-r0
 ARG composer_version=2.4.2-r0
-ARG php8_pecl_xdebug=3.1.6-r0
+ARG php81_pecl_xdebug=3.1.6-r0
 ARG pcre_version=8.45-r2
 ARG php_major_version=php81
 ARG php_version=8.1.22-r0
@@ -39,8 +39,8 @@ RUN apk --update --no-cache add \
     jq=${jq_version} \
     make=${make_version} \
     pcre=${pcre_version} \
-    php8=${php8_version} \
-    php8-pecl-xdebug=${php8_pecl_xdebug}
+    php81=${php8_version} \
+    php81-pecl-xdebug=${php81_pecl_xdebug}
 
 RUN ln -s -f /usr/bin/php8 /usr/bin/php && echo zend_extension=xdebug.so > /etc/php8/conf.d/50_xdebug.ini && \
     echo xdebug.mode=coverage >> /etc/php8/conf.d/50_xdebug.ini
